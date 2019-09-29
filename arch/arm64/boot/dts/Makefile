@@ -1,4 +1,5 @@
 #ifndef VENDOR_EDIT
+#wanghao@BSP.CHG.Basic 2018/04/25 modify for 18081
 #dts-dirs += al
 #dts-dirs += altera
 #dts-dirs += amd
@@ -22,7 +23,12 @@
 #dts-dirs += lg
 #dts-dirs += zte
 #else
+dts-dirs += 18081
+dts-dirs += 18181
+dts-dirs += 18097
 dts-dirs += 18621
+dts-dirs += 18099
+dts-dirs += 18041
 #endif
 
 subdir-y	:= $(dts-dirs)
