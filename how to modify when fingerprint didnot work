@@ -1,0 +1,19 @@
+how to modify when fingerprint didnot work：
+
+1.check the log：logcat |grep -Ei "fpc"
+01-01 06:39:55.688  1474  1474 D fpc_hal : fpc_navigation_pause
+01-01 06:39:55.688  1474  1474 D fpc_tac : fpc_tee_clear_cancel
+01-01 06:39:55.688  1474  1474 D fpc_tac : fpc_tee_sensortest_self_test
+01-01 06:39:55.688  1474  1474 D fpc_tac : fpc_tee_sensortest_test_command
+01-01 06:39:55.688  1474  1474 E fpc_tac : fpc_sysfs_node_write openat: wakelock_enable failed, Permission denied
+01-01 06:39:55.693  1474  1474 E fpc_tac : fpc_sysfs_node_write openat: wakelock_enable failed, Permission denied
+01-01 06:39:55.693  1474  1474 E fpc_tac : fpc_irq_status openat failed with error Unknown error -13
+01-01 06:39:55.693  1474  1474 E fpc_tac : fpc_tee_sensortest_self_test IRQ TEST READ INITIAL -> FPC_ERROR_SENSOR
+01-01 06:39:55.693  1474  1474 D fpc_tac : fpc_tee_sensortest_test_command
+01-01 06:39:55.693  1474  1474 E fpc_tac : fpc_sysfs_node_write openat: wakelock_enable failed, Permission denied
+
+2.add  fpc device policy
+device/qcom/common / rootdir/etc/ueventd.qcom.rc
+/sys/bus/platform/devices/soc:fpc_fpc1020 irq             0660 system system
+/sys/bus/platform/devices/soc:fpc_fpc1020 irq_enable      0660 system system
+/sys/bus/platform/devices/soc:fpc_fpc1020 wakelock_enable 0660 system system
