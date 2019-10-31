@@ -2868,7 +2868,19 @@
 				};
 			};
 
+			shortc_active: shortc_active {
+				mux {
+					pins = "gpio43";
+					function = "gpio";
+				};
 
+				config {
+					pins = "gpio43";
+					drive-strength = <2>;
+					input-enable;
+					bias-pull-up; /*PULL UP*/
+				};
+			};
 
 			/*OuYangBaiLi@BSP.CHG.Basic 2018/11/24 modify for otg*/
 			ccdetect_active: ccdetect_active {

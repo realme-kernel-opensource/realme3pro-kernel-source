@@ -159,7 +159,8 @@
 			pinctrl-names = "chargerid_switch_active", "chargerid_switch_sleep", "chargerid_switch_default",
 							"ship_active", "ship_sleep",
 							"ccdetect_active", "ccdetect_sleep",
-							"chg_qupv3_se12_2uart_sleep", "chg_qupv3_se12_2uart_default";
+							"chg_qupv3_se12_2uart_sleep", "chg_qupv3_se12_2uart_default",
+							"shortc_active";
 							/*"dischg_enable", "dischg_disable",*/
 
 			pinctrl-0 = <&chargerid_switch_active>;
@@ -171,7 +172,7 @@
 			pinctrl-6 = <&ccdetect_sleep>;
 			pinctrl-7 = <&chg_qupv3_se12_2uart_sleep>;
 			pinctrl-8 = <&chg_qupv3_se12_2uart_default>;
-			//pinctrl-5 = <&dischg_enable>;
+			pinctrl-9 = <&shortc_active>;
 			//pinctrl-6 = <&dischg_disable>;
 //#endif //VENDOR_EDIT
 		qcom,chgr@1000 {
