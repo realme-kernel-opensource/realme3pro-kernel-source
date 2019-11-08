@@ -1685,24 +1685,6 @@ int himax_mcu_0f_operation_dirly(void)
 
     TPD_DETAIL("%s, Entering \n", __func__);
     TPD_DETAIL("file name = %s\n", private_ts->panel_data.fw_name);
-    if (g_chip_info->g_fw_entry == NULL) {
-        TPD_INFO("Request TP firmware.\n");
-        if(private_ts->fw_update_app_support) {
-            err = request_firmware_select (&g_chip_info->g_fw_entry, private_ts->panel_data.fw_name, private_ts->dev);
-        } else {
-            err = request_firmware (&g_chip_info->g_fw_entry, private_ts->panel_data.fw_name, private_ts->dev);
-        }
-        if (err < 0) {
-            TPD_INFO("%s, fail in line%d error code=%d,file maybe fail\n", __func__, __LINE__, err);
-            if(g_chip_info->g_fw_entry != NULL) {
-                release_firmware(g_chip_info->g_fw_entry);
-                g_chip_info->g_fw_entry = NULL;
-            }
-            return err;
-        }
-    } else {
-        TPD_DETAIL("TP firmware has been requested.\n");
-    }
 
     if(g_f_0f_updat == 1) {
         TPD_INFO("%s:[Warning]Other thread is updating now!\n", __func__);
